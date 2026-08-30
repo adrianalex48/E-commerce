@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Conexión del Traductor (DbContext) a PostgreSQL en Neon
+builder.Services.AddDbContext<Windbrands.Data.ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConexionNeon")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
