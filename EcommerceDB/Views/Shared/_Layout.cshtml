@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WindbrandsMX</title>
+    <!-- Conectamos el CSS que acabas de guardar -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- El Menú Superior siempre será visible -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="~/images/logo-windbrands.png" alt="Windbrands MX Logo" class="brand-logo" />
+            <span class="logo">WIND<span class="highlight">BRANDS MX</span></span>
+        </div>
+       
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Buscar tenis, ropa y más...">
+        </div>
+        <div class="header-actions">
+            <div class="location-selector">
+                <span class="icon">📍</span> Envío a: <strong>Casa</strong> | Desde: <strong>Bodega Central</strong>
+            </div>
+            <div class="cart">
+                <span class="icon">🛒</span> <span class="cart-count">2</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Aquí Visual Studio inyectará el contenido de las otras páginas -->
+    @RenderBody()
+
+</body>
+</html>
