@@ -53,10 +53,13 @@ body {
 
 .search-container {
     width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 /* Barra de búsqueda adaptada al modo oscuro */
 .search-bar {
-    width: 100%;
+    flex: 1;
     padding: 12px 20px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -64,6 +67,14 @@ body {
     color: var(--text-main);
     font-size: 14px;
     outline: none;
+}
+
+/* Decoración de imagen en el buscador */
+.search-decoration {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
     .search-bar::placeholder {
