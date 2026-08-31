@@ -29,6 +29,16 @@
         </div>
     </header>
 
+    <!-- Menú de Categorías Principal -->
+    <nav class="category-menu">
+        <div class="container-nav">
+            <a href="@Url.Action("Index", "Home")" class="category-link">👟 Sneakers</a>
+            <a href="@Url.Action("Shirts", "Home")" class="category-link">👕 Camisas & Camisolas</a>
+            <a href="#" class="category-link">🧥 Hoodies</a>
+            <a href="#" class="category-link">📦 Accesorios</a>
+        </div>
+    </nav>
+
     <!-- Aquí Visual Studio inyectará el contenido de las otras páginas -->
     @RenderBody()
 

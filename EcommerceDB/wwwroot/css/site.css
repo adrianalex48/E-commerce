@@ -262,3 +262,86 @@ body {
     .btn-buy:hover {
         opacity: 0.9;
     }
+
+/* 5. Menú de Categorías Principal */
+.category-menu {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+    position: sticky;
+    top: 71px;
+    z-index: 99;
+}
+
+.container-nav {
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.category-link {
+    display: inline-block;
+    padding: 15px 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+    .category-link:hover {
+        color: var(--text-main);
+        border-bottom-color: var(--accent-color);
+    }
+
+    .category-link.active {
+        color: var(--accent-color);
+        border-bottom-color: var(--accent-color);
+    }
+
+/* 6. Header de Sección */
+.section-header {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* 7. Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .container-nav {
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .category-link {
+        font-size: 13px;
+        padding: 12px 0;
+    }
+}
