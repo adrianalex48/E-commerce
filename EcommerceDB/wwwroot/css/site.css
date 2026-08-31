@@ -161,11 +161,17 @@ body {
 .product-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
+
+    .product-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-color);
+    }
 
 /* El fondo de la imagen se queda blanco para que las fotos de productos sigan luciendo bien */
 .image-container {
@@ -188,6 +194,20 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-color);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .brand {
