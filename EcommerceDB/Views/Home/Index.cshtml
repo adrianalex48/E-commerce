@@ -40,11 +40,11 @@
         {
             <article class="product-card">
                 <div class="image-container">
-                    <img src="~/images/logo-windbrands.png" alt="@product.Nombre" />
+                    <img src="@product.ImagenUrl" alt="@product.Nombre" />
                 </div>
 
                 <div class="product-info">
-                    <span class="badge">Categoria @product.CategoriaId</span>
+                    <span class="badge">Categoria @product.Categoria.Nombre</span>
                     <span class="brand">Producto</span>
                     <h4 class="title">@product.Nombre</h4>
 

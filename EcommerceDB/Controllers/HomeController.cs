@@ -1,5 +1,6 @@
 using EcommerceDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using Windbrands.Data;
 
@@ -16,7 +17,7 @@ namespace EcommerceDB.Controllers
 
         public IActionResult Index()
         {
-            var productos = _context.Productos.ToList();
+            var productos = _context.Productos.Include(p => p.Categoria).ToList();
             return View(productos);
         }
 
