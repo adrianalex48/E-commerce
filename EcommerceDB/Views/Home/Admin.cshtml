@@ -1,0 +1,56 @@
+﻿@{
+    // Esto le dice a ASP.NET que no use el _Layout.cshtml
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <!-- Conectamos el CSS exclusivo del panel -->
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body>
+    <aside class="admin-sidebar">
+        <div class="brand">AdminPanel ERP</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">📊 Resumen</a></li>
+                <li><a href="#">🏢 Bodegas</a></li>
+                <li><a href="#">📦 Proveedores</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-content">
+        <header class="admin-header">
+            <h2>Panel de Control</h2>
+            <div class="user-profile">Admin</div>
+        </header>
+
+        <div class="dashboard-sections">
+            <section class="admin-card">
+                <h3>🏢 Control de Bodegas</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID Bodega</th>
+                            <th>Ubicación</th>
+                            <th>Capacidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BOD-001</td>
+                            <td>Norte</td>
+                            <td>5,000 u.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

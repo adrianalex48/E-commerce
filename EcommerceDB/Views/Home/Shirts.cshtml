@@ -1,0 +1,69 @@
+@model List<EcommerceDB.Models.Product>
+
+@{
+    ViewData["Title"] = "Catálogo de Camisas";
+}
+
+<main class="container">
+    <aside class="sidebar">
+        <h3>Categorías</h3>
+        <ul class="filter-list">
+            <li><a href="@Url.Action("Shirts")" class="active">Camisas & Camisolas</a></li>
+            <li><a href="@Url.Action("Index")">Sneakers (Tenis)</a></li>
+            <li><a href="#">Hoodies</a></li>
+            <li><a href="#">Accesorios</a></li>
+        </ul>
+
+        <h3 class="mt-20">Tallas Disponibles</h3>
+        <div class="size-grid">
+            <button class="size-btn">XS</button>
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+            <button class="size-btn">XXL</button>
+        </div>
+
+        <h3 class="mt-20">Marcas</h3>
+        <ul class="filter-list">
+            <li><a href="#">Nike</a></li>
+            <li><a href="#">Adidas</a></li>
+            <li><a href="#">Jordan</a></li>
+            <li><a href="#">Puma</a></li>
+            <li><a href="#">Tommy Hilfiger</a></li>
+            <li><a href="#">New Balance</a></li>
+        </ul>
+    </aside>
+
+    <section class="products-grid">
+        <div class="section-header">
+            <h2>Catálogo de Camisas & Camisolas de Marca</h2>
+            <p>Descubre nuestra colección de camisas y camisolas de las mejores marcas deportivas</p>
+        </div>
+        
+        @foreach (var product in Model)
+        {
+            <article class="product-card">
+                <div class="image-container">
+                    <img src="@product.ImageUrl" alt="@product.Name" />
+                </div>
+
+                <div class="product-info">
+                    <span class="badge">@product.Badge</span>
+                    <span class="brand">@product.Brand</span>
+                    <h4 class="title">@product.Name</h4>
+
+                    <div class="price-row">
+                        <div class="lowest-ask">
+                            <span class="label">Precio más bajo</span>
+                            <span class="price">$@product.Price.ToString("N0") MXN</span>
+                        </div>
+                    </div>
+
+                    <p class="stock-info">🟢 @product.StockText</p>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+            </article>
+        }
+    </section>
+</main>

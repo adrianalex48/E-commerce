@@ -1,0 +1,358 @@
+/* 1. Variables de Modo Oscuro */
+:root {
+    --bg-color: #0f172a; /* Fondo principal oscuro (tipo azul marino noche) */
+    --card-bg: #1e293b; /* Fondo de las tarjetas y barra superior */
+    --text-main: #f8fafc; /* Texto principal en blanco/gris claro */
+    --text-muted: #94a3b8; /* Texto secundario gris */
+    --accent-color: #38bdf8; /* Azul claro llamativo para botones */
+    --border-color: #334155; /* Líneas separadoras oscuras */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+/* 2. Barra de Navegación Oscura */
+.navbar {
+    background-color: var(--bg-color);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.brand-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.search-container {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* Barra de búsqueda adaptada al modo oscuro */
+.search-bar {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+}
+
+/* Decoración de imagen en el buscador */
+.search-decoration {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+    .search-bar::placeholder {
+        color: var(--text-muted);
+    }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 14px;
+}
+
+.location-selector {
+    color: var(--text-muted);
+}
+
+    .location-selector strong {
+        color: var(--text-main);
+    }
+
+/* 3. Estructura Principal */
+.container {
+    display: flex;
+    max-width: 1300px;
+    margin: 30px auto;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+    .sidebar h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-main);
+    }
+
+.mt-20 {
+    margin-top: 30px;
+}
+
+.filter-list {
+    list-style: none;
+}
+
+    .filter-list li {
+        margin-bottom: 12px;
+    }
+
+    .filter-list a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 14px;
+    }
+
+        .filter-list a:hover, .filter-list a.active {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+/* Botones de tallas oscuros */
+.size-btn {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+    .size-btn:hover {
+        border-color: var(--accent-color);
+    }
+
+/* 4. Tarjetas de Productos */
+.products-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-color);
+    }
+
+/* El fondo de la imagen se queda blanco para que las fotos de productos sigan luciendo bien */
+.image-container {
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-color);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.brand {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 15px;
+    margin: 8px 0 15px 0;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.price-row {
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.lowest-ask .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+}
+
+.lowest-ask .price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Verde más brillante para que se lea bien en fondo oscuro */
+.stock-info {
+    font-size: 12px;
+    color: #34d399;
+    margin-bottom: 15px;
+}
+
+.btn-buy {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: #0f172a;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+    .btn-buy:hover {
+        opacity: 0.9;
+    }
+
+/* 5. Menú de Categorías Principal */
+.category-menu {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+    position: sticky;
+    top: 71px;
+    z-index: 99;
+}
+
+.container-nav {
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.category-link {
+    display: inline-block;
+    padding: 15px 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+    .category-link:hover {
+        color: var(--text-main);
+        border-bottom-color: var(--accent-color);
+    }
+
+    .category-link.active {
+        color: var(--accent-color);
+        border-bottom-color: var(--accent-color);
+    }
+
+/* 6. Header de Sección */
+.section-header {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* 7. Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .container-nav {
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .category-link {
+        font-size: 13px;
+        padding: 12px 0;
+    }
+}
