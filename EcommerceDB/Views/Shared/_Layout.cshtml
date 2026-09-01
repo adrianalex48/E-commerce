@@ -33,10 +33,13 @@
     <!-- Menú de Categorías Principal -->
     <nav class="category-menu">
         <div class="container-nav">
-            <a href="@Url.Action("Index", "Home")" class="category-link">👟 Sneakers</a>
-            <a href="@Url.Action("Shirts", "Home")" class="category-link">👕 Camisas & Camisolas</a>
-            <a href="#" class="category-link">🧥 Hoodies</a>
-            <a href="#" class="category-link">📦 Accesorios</a>
+            @if (ViewBag.Categorias != null)
+            {
+                foreach (var cat in ViewBag.Categorias)
+                {
+                    <a asp-controller="Home" asp-action="Index" asp-route-categoriaId="@cat.Id" class="category-link">@cat.Nombre</a>
+                }
+            }
         </div>
     </nav>
 

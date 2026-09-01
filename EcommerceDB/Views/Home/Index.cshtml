@@ -1,4 +1,4 @@
-﻿@model List<EcommerceDB.Models.Product>
+﻿@model CatalogoViewModel
 
 @{
     ViewData["Title"] = "Catálogo";
@@ -8,12 +8,13 @@
     <aside class="sidebar">
         <h3>Categorías</h3>
         <ul class="filter-list">
-            <li><a href="@Url.Action("Index")" class="active">Sneakers (Tenis)</a></li>
-            <li><a href="@Url.Action("Shirts")">Camisas & Camisolas</a></li>
-            <li><a href="#">Hoodies</a></li>
-            <li><a href="#">Accesorios</a></li>
+            @foreach (var cat in Model.Categorias)
+            {
+                <li><a asp-action="Index" asp-route-categoriaId="@cat.Id">@cat.Nombre</a></li>
+            }
         </ul>
 
+        @*
         <h3 class="mt-20">Tallas Disponibles</h3>
         <div class="size-grid">
             <button class="size-btn">US 7</button>
@@ -33,10 +34,11 @@
             <li><a href="#">New Balance</a></li>
             <li><a href="#">ASICS</a></li>
         </ul>
+        *@
     </aside>
 
     <section class="products-grid">
-        @foreach (var product in Model)
+        @foreach (var product in Model.Productos)
         {
             <article class="product-card">
                 <div class="image-container">
