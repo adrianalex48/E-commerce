@@ -11,10 +11,10 @@
 <body>
     <!-- El Menú Superior siempre será visible -->
     <header class="navbar">
-        <div class="logo-container">
+        <a asp-controller="Home" asp-action="Index" class="logo-container" aria-label="Ir al inicio">
             <img src="~/images/logo-windbrands.png" alt="Windbrands MX Logo" class="brand-logo" />
-            <span class="logo">  WIND<span class="highlight">BRANDS MX</span></span>
-        </div>
+            <span class="logo">&nbsp;&nbsp;WIND<span class="highlight">BRANDS MX</span></span>
+        </a>
        
         <div class="search-container">
             <input type="text" class="search-bar" placeholder="Buscar tenis, ropa y más...">

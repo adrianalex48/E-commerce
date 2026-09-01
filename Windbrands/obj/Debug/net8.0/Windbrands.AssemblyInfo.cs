@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Windbrands")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aed61dfbf3fa4a576b372b6ab5aceb2b3ba2ecd3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb9744ac069ca3fd5936dac8d6623ada777174d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Windbrands")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Windbrands")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
