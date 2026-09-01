@@ -40,22 +40,22 @@
         {
             <article class="product-card">
                 <div class="image-container">
-                    <img src="@product.ImageUrl" alt="@product.Name" />
+                    <img src="~/images/logo-windbrands.png" alt="@product.Nombre" />
                 </div>
 
                 <div class="product-info">
-                    <span class="badge">@product.Badge</span>
-                    <span class="brand">@product.Brand</span>
-                    <h4 class="title">@product.Name</h4>
+                    <span class="badge">Categoria @product.CategoriaId</span>
+                    <span class="brand">Producto</span>
+                    <h4 class="title">@product.Nombre</h4>
 
                     <div class="price-row">
                         <div class="lowest-ask">
-                            <span class="label">Precio más bajo</span>
-                            <span class="price">$@product.Price.ToString("N0") MXN</span>
+                            <span class="label">Precio de venta</span>
+                            <span class="price">$@product.PrecioVenta.ToString("N0") MXN</span>
                         </div>
                     </div>
 
-                    <p class="stock-info">🟢 @product.StockText</p>
+                    <p class="stock-info">🟢 @product.Descripcion</p>
                     <button class="btn-buy">Comprar</button>
                 </div>
             </article>

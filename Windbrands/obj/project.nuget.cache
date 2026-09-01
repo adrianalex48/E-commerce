@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "go7LIrsrTFI=",
+  "dgSpecHash": "2Nop+Kc6Uas=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\ECOMMERCE\\E-commerce\\Windbrands\\Windbrands.csproj",
+  "projectFilePath": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\New folder\\E-commerce\\Windbrands\\Windbrands.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Omar\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Omar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

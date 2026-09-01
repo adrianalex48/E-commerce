@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\ECOMMERCE\\E-commerce\\Windbrands\\Windbrands.csproj": {}
+    "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\New folder\\E-commerce\\Windbrands\\Windbrands.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\ECOMMERCE\\E-commerce\\Windbrands\\Windbrands.csproj": {
+    "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\New folder\\E-commerce\\Windbrands\\Windbrands.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\ECOMMERCE\\E-commerce\\Windbrands\\Windbrands.csproj",
+        "projectUniqueName": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\New folder\\E-commerce\\Windbrands\\Windbrands.csproj",
         "projectName": "Windbrands",
-        "projectPath": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\ECOMMERCE\\E-commerce\\Windbrands\\Windbrands.csproj",
+        "projectPath": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\New folder\\E-commerce\\Windbrands\\Windbrands.csproj",
         "packagesPath": "C:\\Users\\Omar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\ECOMMERCE\\E-commerce\\Windbrands\\obj\\",
+        "outputPath": "C:\\Users\\Omar\\Documents\\Important\\UNI\\BDD1\\New folder\\E-commerce\\Windbrands\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Omar\\AppData\\Roaming\\NuGet\\NuGet.Config"
