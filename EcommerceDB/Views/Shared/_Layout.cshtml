@@ -15,11 +15,12 @@
             <img src="~/images/logo-windbrands.png" alt="Windbrands MX Logo" class="brand-logo" />
             <span class="logo">&nbsp;&nbsp;WIND<span class="highlight">BRANDS MX</span></span>
         </a>
-       
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Buscar tenis, ropa y más...">
-            <img src="~/images/mortygc.png" alt="Decoración" class="search-decoration" />
-        </div>
+        <form class="search-container" asp-controller="Home" asp-action="Index" method="get">
+            <input type="text" class="search-bar" name="busqueda" placeholder="Buscar tenis, ropa y más..." value="@ViewBag.BusquedaActual">
+            <button type="submit" style="border: none; background: none; cursor: pointer; padding: 0;">
+                <img src="~/images/mortygc.png" alt="Buscar" class="search-decoration" />
+            </button>
+        </form>
         <div class="header-actions">
             <div class="location-selector">
                 <span class="icon">📍</span> Envío a: <strong>Casa</strong> | Desde: <strong>Bodega Central</strong>

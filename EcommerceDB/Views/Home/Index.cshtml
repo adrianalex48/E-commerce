@@ -58,7 +58,7 @@
                     </div>
 
                     <p class="stock-info">🟢 @product.Descripcion</p>
-                    <button class="btn-buy">Comprar</button>
+                    <a asp-action="ComprarProducto" asp-route-productoid="@product.Id" class="btn-buy" style="text-decoration: none; display: block; text-align: center;">Comprar</a>
                 </div>
             </article>
         }

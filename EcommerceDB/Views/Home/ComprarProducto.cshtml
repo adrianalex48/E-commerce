@@ -1,0 +1,90 @@
+@model Product
+
+@{
+    ViewData["Title"] = "Comprar - " + Model.Nombre;
+}
+
+<div class="container" style="max-width: 900px; margin: 30px auto;">
+    <div style="display: flex; gap: 30px;">
+        <!-- Detalles del producto -->
+        <div style="flex: 1;">
+            <img src="@Model.ImagenUrl" alt="@Model.Nombre" style="width: 100%; border-radius: 8px;" />
+            <h2>@Model.Nombre</h2>
+            <p style="color: #94a3b8;">@Model.Descripcion</p>
+            <p style="font-size: 24px; font-weight: bold; color: #38bdf8;">$@Model.PrecioVenta.ToString("N0") MXN</p>
+            <p style="color: #94a3b8;">Categoría: @Model.Categoria.Nombre</p>
+        </div>
+
+        <!-- Formulario de pago -->
+        <div style="flex: 1; background: #1e293b; padding: 20px; border-radius: 8px;">
+            <h3>Formulario de Compra</h3>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div style="background: #7f1d1d; color: #fecaca; padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            @if (TempData["MensajeExito"] != null)
+            {
+                <div style="background: #064e3b; color: #86efac; padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                    @TempData["MensajeExito"]
+                </div>
+            }
+
+            <form method="post">
+                <!-- Datos del cliente -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Nombre Completo</label>
+                    <input type="text" name="nombreCliente" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Correo Electrónico</label>
+                    <input type="email" name="correo" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Cantidad</label>
+                    <input type="number" name="cantidad" value="1" min="1" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                </div>
+
+                <!-- Datos de la tarjeta -->
+                <h4 style="margin-top: 20px; margin-bottom: 15px;">Datos de la Tarjeta (Simulado)</h4>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Número de Tarjeta (16 dígitos)</label>
+                    <input type="text" name="numeroTarjeta" placeholder="4532 1234 5678 9010" maxlength="16" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px;">Expiración (MM/AA)</label>
+                        <input type="text" name="expiracion" placeholder="12/26" maxlength="5" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 5px;">CVV (3 dígitos)</label>
+                        <input type="text" name="cvv" placeholder="123" maxlength="3" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <button type="submit" style="width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-bottom: 10px;">
+                    Completar Compra
+                </button>
+                <a asp-action="Index" style="display: block; text-align: center; padding: 12px; background: #334155; color: #f8fafc; text-decoration: none; border-radius: 4px;">
+                    Cancelar
+                </a>
+            </form>
+
+            <div style="background: #0f172a; padding: 15px; border-radius: 4px; margin-top: 20px; font-size: 12px; color: #94a3b8;">
+                <p><strong>📌 Tarjeta de prueba:</strong></p>
+                <p>• Número: 4532123456789010</p>
+                <p>• Expiración: 12/26</p>
+                <p>• CVV: 123</p>
+                <p>• Esta es una simulación. No se procesarán pagos reales.</p>
+            </div>
+        </div>
+    </div>
+</div>

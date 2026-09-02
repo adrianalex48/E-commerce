@@ -43,6 +43,16 @@ body {
     display: flex;
     align-items: center;
     height: 100%;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.logo-container:hover,
+.logo-container:visited,
+.logo-container:active,
+.logo-container:focus {
+    text-decoration: none;
+    color: var(--text-main);
 }
 
 .brand-logo {
