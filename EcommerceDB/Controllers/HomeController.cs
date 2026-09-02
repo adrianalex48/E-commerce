@@ -74,9 +74,11 @@ namespace EcommerceDB.Controllers
 
         // POST: Procesar compra con tarjeta simulada
         [HttpPost]
-        public IActionResult ComprarProducto(int productoid, string nombreCliente, string correo, string numeroTarjeta, string expiracion, string cvv, int cantidad)
+        public IActionResult ComprarProducto(int productoid, string nombreCliente, string correo, string numeroTarjeta, string expiracion, string cvv, int cantidad, string calle, string numeroExterior, string colonia, string ciudad, string estado, string codigoPostal, string referencias)
         {
-            var producto = _context.Productos.FirstOrDefault(p => p.Id == productoid);
+            var producto = _context.Productos
+                .Include(p => p.Categoria)
+                .FirstOrDefault(p => p.Id == productoid);
 
             if (producto == null)
             {
@@ -94,6 +96,15 @@ namespace EcommerceDB.Controllers
             if (cantidad <= 0)
             {
                 ModelState.AddModelError("", "La cantidad debe ser mayor a 0");
+                ViewBag.Categorias = _context.Categorias.ToList();
+                return View(producto);
+            }
+
+            if (string.IsNullOrWhiteSpace(calle) || string.IsNullOrWhiteSpace(numeroExterior) ||
+                string.IsNullOrWhiteSpace(colonia) || string.IsNullOrWhiteSpace(ciudad) ||
+                string.IsNullOrWhiteSpace(estado) || !System.Text.RegularExpressions.Regex.IsMatch(codigoPostal ?? "", "^\\d{5}$"))
+            {
+                ModelState.AddModelError("", "Completa una dirección de entrega válida, incluyendo un código postal de 5 dígitos.");
                 ViewBag.Categorias = _context.Categorias.ToList();
                 return View(producto);
             }
