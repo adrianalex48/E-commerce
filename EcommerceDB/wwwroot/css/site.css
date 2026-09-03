@@ -20,6 +20,31 @@ body {
     color: var(--text-main);
 }
 
+.purchase-success {
+    max-width: 1260px;
+    margin: 24px auto 0;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #123d32;
+    border: 1px solid #34d399;
+    border-left: 5px solid #34d399;
+    border-radius: 8px;
+    color: #d1fae5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.purchase-success strong {
+    color: #6ee7b7;
+    font-size: 18px;
+}
+
+.purchase-success span {
+    color: #a7f3d0;
+    font-size: 14px;
+}
+
 /* 2. Barra de Navegación Oscura */
 .navbar {
     background-color: var(--bg-color);

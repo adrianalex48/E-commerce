@@ -142,7 +142,7 @@ namespace EcommerceDB.Controllers
                 {
                     ClienteId = cliente.Id,
                     BodegaOrigenId = 1, // Bodega por defecto
-                    FechaHora = DateTime.Now,
+                    FechaHora = DateTime.UtcNow,
                     Estado = "Completado"
                 };
                 _context.Pedidos.Add(pedido);

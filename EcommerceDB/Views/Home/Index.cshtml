@@ -4,6 +4,14 @@
     ViewData["Title"] = "Catálogo";
 }
 
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="purchase-success" role="status">
+        <strong>Gracias por tu compra</strong>
+        <span>@TempData["MensajeExito"]</span>
+    </div>
+}
+
 <main class="container">
     <aside class="sidebar">
         <h3>Categorías</h3>
