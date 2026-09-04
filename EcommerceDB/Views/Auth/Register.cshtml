@@ -1,0 +1,42 @@
+@model EcommerceDB.Models.RegistroViewModel
+
+@{
+    ViewData["Title"] = "Crear cuenta";
+}
+
+<main class="container auth-page">
+    <section class="auth-card">
+        <p class="eyebrow">WIND<span class="highlight">BRANDS MX</span></p>
+        <h1>Crea tu cuenta</h1>
+        <p>Regístrate para explorar el catálogo y realizar tus compras.</p>
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreCompleto"></label>
+                <input asp-for="NombreCompleto" class="form-control" autocomplete="name" />
+                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Correo"></label>
+                <input asp-for="Correo" class="form-control" autocomplete="email" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Contraseña</label>
+                <input asp-for="Password" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmarPassword"></label>
+                <input asp-for="ConfirmarPassword" class="form-control" autocomplete="new-password" />
+                <span asp-validation-for="ConfirmarPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn-buy">Crear cuenta</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a asp-action="Login">Inicia sesión</a></p>
+    </section>
+</main>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

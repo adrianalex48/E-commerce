@@ -123,6 +123,92 @@ body {
     font-size: 14px;
 }
 
+.auth-page {
+    justify-content: center;
+    min-height: calc(100vh - 180px);
+    align-items: center;
+}
+
+.auth-card {
+    width: min(100%, 460px);
+    padding: 36px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.auth-card h1 {
+    margin: 8px 0;
+}
+
+.auth-card > p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.auth-card .form-group {
+    margin-bottom: 18px;
+}
+
+.auth-card label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.auth-card .form-control {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+
+.auth-card .btn-buy {
+    width: 100%;
+    margin: 4px 0 20px;
+}
+
+.eyebrow {
+    color: var(--accent-color) !important;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0 !important;
+}
+
+.auth-card a {
+    color: var(--accent-color);
+}
+
+.text-danger {
+    color: #fca5a5;
+    display: block;
+    margin-top: 5px;
+}
+
+.auth-success {
+    color: #86efac !important;
+}
+
+.reset-link {
+    display: grid;
+    gap: 8px;
+    margin: 4px 0 20px;
+    padding: 14px;
+    background: #123d32;
+    border: 1px solid #34d399;
+    border-radius: 4px;
+}
+
+.reset-link a {
+    overflow-wrap: anywhere;
+}
+
+.reset-link small {
+    color: #a7f3d0;
+}
+
 .location-selector {
     color: var(--text-muted);
 }

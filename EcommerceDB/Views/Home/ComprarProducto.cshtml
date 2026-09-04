@@ -39,12 +39,12 @@
                 <!-- Datos del cliente -->
                 <div style="margin-bottom: 15px;">
                     <label style="display: block; margin-bottom: 5px;">Nombre Completo</label>
-                    <input type="text" name="nombreCliente" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                    <input type="text" name="nombreCliente" value="@Context.Session.GetString("ClienteNombre")" readonly style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
                 </div>
 
                 <div style="margin-bottom: 15px;">
                     <label style="display: block; margin-bottom: 5px;">Correo Electrónico</label>
-                    <input type="email" name="correo" required style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
+                    <input type="email" name="correo" value="@Context.Session.GetString("ClienteCorreo")" readonly style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #f8fafc;" />
                 </div>
 
                 <div style="margin-bottom: 15px;">

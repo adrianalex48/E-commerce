@@ -5,5 +5,8 @@ namespace EcommerceDB.Models {
         [Column("id")] public int Id { get; set; }
         [Column("nombrecompleto")] public string NombreCompleto { get; set; } = string.Empty;
         [Column("correo")] public string Correo { get; set; } = string.Empty;
+        [Column("passwordhash")] public string? PasswordHash { get; set; }
+        [Column("passwordresettokenhash")] public string? PasswordResetTokenHash { get; set; }
+        [Column("passwordresetexpiresat")] public DateTime? PasswordResetExpiresAt { get; set; }
     }
 }

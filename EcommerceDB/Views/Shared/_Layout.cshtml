@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" asp-append-version="true" />
     <!-- Conectamos el CSS que acabas de guardar -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <!-- El Menú Superior siempre será visible -->
@@ -28,6 +29,13 @@
             <div class="cart">
                 <span class="icon">🛒</span> <span class="cart-count">2</span>
             </div>
+            @if (Context.Session.GetInt32("ClienteId") != null)
+            {
+                <span>Hola, @Context.Session.GetString("ClienteNombre")</span>
+                <form asp-controller="Auth" asp-action="Logout" method="post">
+                    <button type="submit" class="btn-buy">Salir</button>
+                </form>
+            }
         </div>
     </header>
 
@@ -46,6 +54,8 @@
 
     <!-- Aquí Visual Studio inyectará el contenido de las otras páginas -->
     @RenderBody()
+
+    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

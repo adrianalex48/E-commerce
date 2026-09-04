@@ -17,6 +17,12 @@ namespace EcommerceDB.Controllers
 
         public IActionResult Index(int? categoriaId, string busqueda)
         {
+            var acceso = ExigirSesion();
+            if (acceso != null)
+            {
+                return acceso;
+            }
+
             var categorias = _context.Categorias.ToList();
             var productosQuery = _context.Productos
                 .Include(p => p.Categoria)
@@ -45,6 +51,12 @@ namespace EcommerceDB.Controllers
 
         public IActionResult Shirts()
         {
+            var acceso = ExigirSesion();
+            if (acceso != null)
+            {
+                return acceso;
+            }
+
             var productos = _context.Productos.ToList();
             ViewBag.Categorias = _context.Categorias.ToList();
             return View(productos);
@@ -52,6 +64,12 @@ namespace EcommerceDB.Controllers
 
         public IActionResult Privacy()
         {
+            var acceso = ExigirSesion();
+            if (acceso != null)
+            {
+                return acceso;
+            }
+
             ViewBag.Categorias = _context.Categorias.ToList();
             return View();
         }
@@ -59,6 +77,12 @@ namespace EcommerceDB.Controllers
         // GET: Mostrar formulario de compra
         public IActionResult ComprarProducto(int productoid)
         {
+            var acceso = ExigirSesion();
+            if (acceso != null)
+            {
+                return acceso;
+            }
+
             var producto = _context.Productos
                 .Include(p => p.Categoria)
                 .FirstOrDefault(p => p.Id == productoid);
@@ -76,6 +100,12 @@ namespace EcommerceDB.Controllers
         [HttpPost]
         public IActionResult ComprarProducto(int productoid, string nombreCliente, string correo, string numeroTarjeta, string expiracion, string cvv, int cantidad, string calle, string numeroExterior, string colonia, string ciudad, string estado, string codigoPostal, string referencias)
         {
+            var acceso = ExigirSesion();
+            if (acceso != null)
+            {
+                return acceso;
+            }
+
             var producto = _context.Productos
                 .Include(p => p.Categoria)
                 .FirstOrDefault(p => p.Id == productoid);
@@ -124,17 +154,14 @@ namespace EcommerceDB.Controllers
                     _context.SaveChanges();
                 }
 
-                // Crear o buscar cliente
-                var cliente = _context.Clientes.FirstOrDefault(c => c.Correo == correo);
+                // El pedido siempre pertenece a la cuenta autenticada.
+                var clienteId = HttpContext.Session.GetInt32("ClienteId");
+                var cliente = clienteId.HasValue
+                    ? _context.Clientes.FirstOrDefault(c => c.Id == clienteId.Value)
+                    : null;
                 if (cliente == null)
                 {
-                    cliente = new Cliente
-                    {
-                        NombreCompleto = nombreCliente,
-                        Correo = correo
-                    };
-                    _context.Clientes.Add(cliente);
-                    _context.SaveChanges();
+                    return RedirectToAction("Login", "Auth");
                 }
 
                 // Crear pedido
@@ -188,6 +215,17 @@ namespace EcommerceDB.Controllers
         {
             ViewBag.Categorias = _context.Categorias.ToList();
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private IActionResult? ExigirSesion()
+        {
+            if (HttpContext.Session.GetInt32("ClienteId") == null)
+            {
+                var returnUrl = Request.Path + Request.QueryString;
+                return RedirectToAction("Login", "Auth", new { returnUrl });
+            }
+
+            return null;
         }
     }
 }

@@ -64,7 +64,7 @@ Este documento define el estado actual del proyecto, la estructura de la base de
 | **StockBodegas** (Llave Compuesta) | `bodegaid`, `productoid`, `cantidad`<br> |
 | **Proveedores** | `id`, `nombre`<br> |
 | **ProveedoresProductos** (Llave Compuesta) | `proveedorid`, `productoid`, `preciocompra`, `tiempoentregadias`<br> |
-| **Clientes** | `id`, `nombrecompleto`, `correo`<br> |
+| **Clientes** | `id`, `nombrecompleto`, `correo`, `passwordhash`, `passwordresettokenhash`, `passwordresetexpiresat`<br> |
 | **DireccionesEnvio** | `id`, `clienteid`, `direccionfisica`, `espredeterminada`<br> |
 | **Pedidos** | `id`, `clienteid`, `bodegaorigenid`, `fechahora`, `estado`<br> |
 | **DetallesPedido** | `id`, `pedidoid`, `productoid`, `cantidad`, `preciomomentocompra`<br> |
